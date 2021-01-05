@@ -9,7 +9,7 @@
             "type": "image/png"
         }
     ],
-    "start_url": ".",
+    "start_url": "https://mrlika.github.io/Bug-212040/",
     "display": "fullscreen",
     "theme_color": "#B12A34",
     "background_color": "#B12A34"
