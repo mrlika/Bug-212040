@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="manifest" href="/manifest.json">
+</head>
+
+<body>
+    <video id='video' muted autoplay></video>
+    <button id='next'>Next page</button>
+    <script>
+        async function main() {
+            const cameraStream = await navigator.mediaDevices.getUserMedia({ audio: false, video: true });
+            document.getElementById('video').srcObject = cameraStream;
+
+            for (const event of ['ended', 'mute', 'unmute', 'isolationchange']) {
+                cameraStream.getVideoTracks()[0].addEventListener(event, () => alert(event));
+            }
+        }
+    
+        document.getElementById('next').addEventListener('click', () => history.pushState({}, '', '/next'));
+        main();
+    </script>
+</body>
+</html>
